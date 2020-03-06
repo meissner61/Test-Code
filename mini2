@@ -1,0 +1,80 @@
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+int main()
+{
+	//SHipping cost of total cost of packaging?s
+	// small package < 15cf = #1.50 per cf
+	//medium package 15 -> 45 cf = $2.50 per cf
+	//Large Package over 45 cf = $3.00 per cf
+
+	float small_cost = 1.50;
+	float med_cost = 2.50;
+	float lrg_cost = 3.00;
+
+	float tax = 0.0775;
+
+	float total = 0;
+
+	int length = 0;
+	int width = 0;
+	int height = 0;
+	int	volume = 0;
+
+	cout << "Eastvale Packaging Co." << endl;
+	cout << "Sales program Ver. 1.5\n\n" << endl;
+
+
+	cout << "Enter the package Length(feet): ";
+	cin >> length;
+	cout << "Enter the package Width(feet): ";
+	cin >> width;
+	cout << "Enter the package Height(feet): ";
+	cin >> height;
+
+	volume = length * width * height;
+
+	while (volume == 0 || volume > 65)
+	{
+		cout << "Package volume must be greater than 0 and less than 65." << endl;
+
+		cout << "Enter the package Length: ";
+		cin >> length;
+		cout << "Enter the package Width: ";
+		cin >> width;
+		cout << "Enter the package Height: ";
+		cin >> height;
+
+		volume = length * width * height;
+	}
+
+	if (volume > 0 && volume <= 15)
+	{
+		total = small_cost * volume * tax;
+
+		cout << "Total Cost is: $" << total << endl;;
+	}
+	else if (volume > 15 && volume <= 45)
+	{
+		total = med_cost * volume * tax;
+
+		cout << "Total Cost is: $" << total << endl;
+	}
+	else if (volume > 45 && volume <= 65)
+	{
+		total = lrg_cost * volume * tax;
+
+		cout << "Total Cost is: $" << total << endl;
+	}
+
+	cout << "Package Volume: " << volume;
+
+	return 0;
+
+
+}
+
